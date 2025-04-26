@@ -40,5 +40,10 @@ public class UserController {
         return ResponseEntity.ok("Logged in as: " + email + " | Role: " + role);
     }
 
+    @GetMapping("/admin/dashboard")
+    public ResponseEntity<String> getAdminDashboard(Authentication authentication) {
+        log.info("Admin accessed dashboard: {}", authentication.getName());
+        return ResponseEntity.ok("Welcome Admin: " + authentication.getName());
+    }
 
 }
